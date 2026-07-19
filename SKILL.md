@@ -28,7 +28,8 @@ Do not use this skill for:
 - Step-by-step model training tutorials or hyperparameter tuning without
   system context.
 - Generic prompt-engineering advice that is not about a deployed system.
-- AI portfolio, investment, or stage-gate decisions.
+- Pure product management, investment, or portfolio decisions that do not
+  involve a concrete ML system architecture.
 - Library or tool selection without architectural implications.
 
 If the request is not about ML system architecture, route to a more
@@ -126,6 +127,7 @@ for the current task:
 | `references/data-and-features.md` | data sources, labels, feature pipelines, leakage, quality, skew, governance |
 | `references/modeling-and-evaluation.md` | baselines, model choice, metrics, offline/online evaluation, experimentation |
 | `references/metrics-and-loss.md` | metric hierarchy, north star, offline/online metrics, loss functions |
+| `references/ai-product-lifecycle.md` | product discovery, stage-gate, hypothesis-driven design, MVP/MLP decisions tied to ML system work |
 | `references/ab-testing.md` | A/B or causal experiment design and analysis |
 | `references/serving-and-architecture.md` | APIs, batch/stream/online serving, latency, scaling, storage, rollback |
 | `references/mlops-and-monitoring.md` | CI/CD, training pipelines, model registry, drift, alerts, retraining, incidents |

@@ -37,7 +37,7 @@ Use $ml-system-design to review the ML system architecture for ...
   - Problem space, metrics, A/B testing, general principles
   - Data, modeling, serving, MLOps, monitoring
   - LLM/RAG/agents, agent patterns, common anti-patterns
-  - Recommendation systems and time-series forecasting
+  - Recommendation systems, time-series forecasting, AI product lifecycle
   - Scoring rubric and output templates
 
 ## Release Archive
