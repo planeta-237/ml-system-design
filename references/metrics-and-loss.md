@@ -47,3 +47,26 @@ A single ML metric is rarely enough. Build a pyramid of metrics that connects mo
 - [ ] Link between loss decrease and target metric growth checked.
 - [ ] Train / validation curves used to diagnose overfitting and underfitting.
 - [ ] Hierarchy stress-tested: can we game the metric? Is there a counterexample?
+
+## Decision tables
+
+| Goal | Loss / metric to consider |
+|---|---|
+| Predict a continuous value, outliers are rare | MSE |
+| Predict a continuous value, robust to outliers | MAE, Huber, quantile loss |
+| Need prediction intervals | Quantile loss, negative log-likelihood |
+| Predict probability | Log-loss / BCE |
+| Class imbalance | Focal loss, weighted cross-entropy, class sampling |
+| Cost of false positives ≠ false negatives | Expected cost at threshold, F-beta, AUPRC |
+| Ranking / recommendation | NDCG, MAP, MRR, recall@k, precision@k |
+| Forecasting with seasonality | MAE/MAPE by horizon, pinball loss, bias/coverage |
+| Generation / LLM | Task success, groundedness, safety, human preference, cost |
+
+| Symptom | Likely cause | Action |
+|---|---|---|
+| Train loss ↓, validation loss ↑ | Overfitting | More data, regularization, simpler model, early stopping |
+| Loss ↓, business metric flat | Wrong proxy or metric gaming | Re-link metric to business outcome, add constraints |
+| Loss oscillates or NaN | Bad data, too-high LR, numeric issue | Check data, gradient clipping, lower LR, scale features |
+| Offline metric ↑, A/B metric flat | Offline-online mismatch | Revalidate proxy correlation, check serving features |
+| Metric suddenly spikes without code change | External event, data drift, broken pipeline | Investigate upstream data and environment |
+

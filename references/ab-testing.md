@@ -35,3 +35,19 @@ Use this file when designing or reviewing A/B tests, online experiments, or caus
 - [ ] Causal inference alternatives considered: Causal Impact, Difference-in-Differences, Synthetic Control, Interrupted Time Series, Regression Discontinuity.
 - [ ] Factorial design used when users are randomized into multiple overlapping experiments.
 - [ ] Offline evaluation (replay, contextual bandits) used to estimate policy impact when online testing is risky.
+
+## Decision tables
+
+| Situation | Recommended design |
+|---|---|
+| Users can be randomized and metric is fast | Standard user-level A/B |
+| Metric lags by days/weeks | Switchback or time-based cluster randomization |
+| Only one geo/tenant; no concurrent control | Synthetic control or interrupted time series |
+| External shock affects everyone at once | Difference-in-differences with a control group |
+| Policy change at a known threshold | Regression discontinuity |
+| Want to measure long-term policy impact | Causal Impact or cohort-based DID |
+| Multiple overlapping experiments | Factorial design with pre-allocated buckets |
+| Treatment may harm users if bad | Add strong guardrails + early stopping |
+| Team cannot resist peeking | Pre-register sequential testing (MSPRT) |
+| Low-traffic metric | Increase duration, use proxy metric, or bootstrap |
+

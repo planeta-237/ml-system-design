@@ -129,6 +129,7 @@ for the current task:
 | `references/ab-testing.md` | A/B or causal experiment design and analysis |
 | `references/serving-and-architecture.md` | APIs, batch/stream/online serving, latency, scaling, storage, rollback |
 | `references/mlops-and-monitoring.md` | CI/CD, training pipelines, model registry, drift, alerts, retraining, incidents |
+| `references/production-readiness.md` | pre-launch checks: health probes, CI/CD, security, PII, resilience, rollback |
 | `references/llm-rag-agents.md` | LLM, RAG, fine-tuning, agents, tool use, memory, guardrails, eval harnesses |
 | `references/llm-agents-patterns.md` | agent runtime patterns, multi-agent, guardrails, testing |
 | `references/common-anti-patterns.md` | common ML and LLM/agent anti-patterns for design and review |
