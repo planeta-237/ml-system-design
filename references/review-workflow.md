@@ -3,6 +3,30 @@
 Use this file when reviewing an existing ML system design, repository, product
 document, architecture diagram, metrics dashboard, or incident write-up.
 
+## Scope Note
+
+This skill focuses on **ML system design review**: architecture, data, modeling,
+evaluation, serving, MLOps, and responsible AI. It is not a substitute for
+ordinary code review. Flag code-level issues only when they create system-level
+risks (e.g., PII in logs, test hooks in production, `eval()` in request paths).
+
+## Quick Recon
+
+Before the deep review, spend a few minutes reading the project artifacts in this
+order:
+
+1. `README.md`, `CLAUDE.md`, `INDEX.md` — what the system is and who it is for.
+2. Project config (`pyproject.toml`, `package.json`, `go.mod`, etc.) — stack and
+   dependencies.
+3. CI/CD config (`.gitlab-ci.yml`, `.github/workflows`, `Makefile`) — quality
+   gates and deployment process.
+4. Settings / config files — environment variables, feature flags, model names.
+5. Entry points and API routes — main request paths.
+6. Tests — what behavior is already validated and what is mocked.
+7. Docs — architecture, eval methodology, monitoring plan.
+
+Use this recon to decide which reference files to load next.
+
 ## Evidence Handling
 
 - Review only the artifacts available in the workspace or supplied by the user.
