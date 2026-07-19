@@ -21,6 +21,9 @@ data quality, leakage, privacy, governance, or feedback loops.
 - Representativeness and bias risks are assessed across important segments.
 - Consent, PII, deletion, audit, and compliance requirements are addressed.
 - Data and labels are versioned with metadata (who, when, tool version).
+- Retrieval strategy matches data characteristics: vector search for semantic
+  similarity, hybrid search for keyword/code lookups, exact match for IDs and
+  history.
 
 ## Common Findings
 

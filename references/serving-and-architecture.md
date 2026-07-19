@@ -13,6 +13,19 @@ latency, scalability, resilience, fallbacks, or rollout strategy.
   product value.
 - **Hybrid**: combine precomputed candidates or features with online reranking
   when latency and freshness both matter.
+- **LLM inference**: consider cost, latency, and throughput trade-offs; KV
+  cache management, continuous batching, and model routing are often critical.
+
+## LLM Inference Optimization
+
+- [ ] Cost/latency/throughput trade-offs quantified for the expected load.
+- [ ] KV cache is managed to avoid memory waste and long-tail latency.
+- [ ] Batching strategy chosen: static, dynamic, or continuous batching.
+- [ ] Model optimization considered: quantization, pruning, distillation, or
+  speculative decoding.
+- [ ] Serving framework matched to requirements: vLLM, TensorRT-LLM, TGI,
+  Triton, or custom runtime.
+- [ ] Model routing selects the smallest adequate model for each request class.
 
 ## Checklist
 

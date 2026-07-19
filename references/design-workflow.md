@@ -3,6 +3,27 @@
 Use this file when creating a new ML system design or answering an ML system
 design interview prompt.
 
+## High-level framework
+
+A repeatable design cycle for AI/ML systems:
+
+```
+Product Requirements → System Design → Evaluation & Monitoring → Optimization
+```
+
+- **Product Requirements:** what to build, for whom, business constraints,
+  success metrics, and human-in-the-loop needs.
+- **System Design:** data strategy, model/components, architecture patterns,
+  serving, and operational constraints.
+- **Evaluation & Monitoring:** offline evaluation, online experiments, guardrails,
+  observability, and drift detection.
+- **Optimization:** accuracy, latency, cost, reliability, and user experience
+  iterated after launch.
+
+Start with the simplest pattern that satisfies the requirements. Prefer control
+flow and human review for high-stakes decisions; add autonomy only after the
+system is validated.
+
 ## Steps
 
 1. Clarify the product objective, users, actions, and decision to automate or
