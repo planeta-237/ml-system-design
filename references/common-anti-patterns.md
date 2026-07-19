@@ -24,18 +24,18 @@ Use this file as a quick risk checklist for designs and reviews.
 See `references/llm-agents-patterns.md` for the full LLM/agent runtime patterns,
 guardrails, testing, and anti-patterns checklist. The most common risks are:
 
-- Heavy frameworks hiding token-level reality.
-- Universal LLM API exposing too much data.
-- Too many tools on one agent.
-- Relying on provider prompt cache as the primary cache.
-- Single quality metric hiding cost, latency, or safety issues.
-- Fine-tuning agent behavior before trying prompt engineering + harness.
-- State machine for everything.
-- No eval harness for prompt changes.
-- Retrieval quality assumed from anecdotes instead of measured.
-- Irreversible tool actions without approval or audit.
-- No PII scrubbing before external LLM calls.
-- Over-reliance on end-to-end reasoning instead of explicit plans.
+- [ ] Heavy frameworks hiding token-level reality.
+- [ ] Universal LLM API exposing too much data.
+- [ ] Too many tools on one agent.
+- [ ] Relying on provider prompt cache as the primary cache.
+- [ ] Single quality metric hiding cost, latency, or safety issues.
+- [ ] Fine-tuning agent behavior before trying prompt engineering + harness.
+- [ ] State machine for everything.
+- [ ] No eval harness for prompt changes.
+- [ ] Retrieval quality assumed from anecdotes instead of measured.
+- [ ] Irreversible tool actions without approval or audit.
+- [ ] No PII scrubbing before external LLM calls.
+- [ ] Over-reliance on end-to-end reasoning instead of explicit plans.
 
 ## How to use this file
 
