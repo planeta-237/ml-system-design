@@ -9,8 +9,9 @@ memory, agents, autonomous actions, or generated content.
   component, a retrieval synthesizer, or an automation controller.
 - [ ] RAG systems define corpus ownership, chunking, indexing, retrieval metrics,
   freshness, access control, citation behavior, and stale document handling.
-- [ ] **Retrieval technique matches the data:** vector search for semantic similarity,
-  hybrid search for medical codes/keywords, exact match for IDs/history.
+- [ ] **Retrieval technique matches the data** (see `data-and-features.md`):
+  vector search for semantic similarity, hybrid search for keyword/code lookups,
+  exact match for IDs/history.
 - [ ] **Control flow vs agentic vs router:** prefer fixed workflows and human review
   for high-stakes decisions; use agents or LLM-as-router only when needed.
 - [ ] **Human in the loop** is defined for critical decisions, denials, overrides,

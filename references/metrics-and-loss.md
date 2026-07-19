@@ -23,7 +23,8 @@ behavior.
 - [ ] Metrics decomposed by level: business → product → operational → ML model.
 - [ ] Formula decomposed: know what inputs drive each top-level metric.
 - [ ] Multiple comparisons effect considered when using many metrics.
-- [ ] Absolute vs relative lift distinguished and the decision rule made explicit.
+- [ ] Absolute vs relative lift distinguished and the decision rule made explicit
+  (line in the sand).
 
 ## Counter-metrics and guardrails
 

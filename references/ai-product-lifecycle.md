@@ -62,25 +62,24 @@ Every product or feature decision should be framed as a testable hypothesis.
 
 ## Double diamond: from problem to solution
 
-1. **Right problem:** understand the persona and jobs-to-be-done (JTBD) before
-   proposing a solution. Bad signal: users say "yes, I would use it." Good
-   signal: users describe the pain in their own words and already spend time or
-   money on workarounds.
-2. **Right solution:** test demand with an MVP/experiment before building full
-   usability. Do not confuse "users like the UI" with "users will change
-   behavior."
-3. **Right usability:** validate interaction only after demand is confirmed.
+- [ ] **Right problem:** understand the persona and jobs-to-be-done (JTBD) before
+  proposing a solution. Bad signal: users say "yes, I would use it." Good
+  signal: users describe the pain in their own words and already spend time or
+  money on workarounds.
+- [ ] **Right solution:** test demand with an MVP/experiment before building full
+  usability. Do not confuse "users like the UI" with "users will change
+  behavior."
+- [ ] **Right usability:** validate interaction only after demand is confirmed.
 
 ## Customer Experience (CX) map
 
 For each step of the user's journey, define:
 
-- Stage meaning (Acquisition, Onboarding, Engagement, Outcome, Retention).
-- DV — dependent variable (metric you want to move).
-- Cut-off / line in the sand.
-- IVs — ideas to test.
-
-Aggregate metrics lie; segment and cohort your analysis.
+- [ ] Stage meaning (Acquisition, Onboarding, Engagement, Outcome, Retention).
+- [ ] DV — dependent variable (metric you want to move).
+- [ ] Cut-off / line in the sand.
+- [ ] IVs — ideas to test.
+- [ ] Aggregate metrics lie; segment and cohort your analysis.
 
 ## When to use with ML system design
 

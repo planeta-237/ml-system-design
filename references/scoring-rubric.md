@@ -19,6 +19,22 @@ whether the score is **ML system design fitness** rather than overall
 engineering quality. A low fitness score can coexist with an acceptable
 contextual design when risk, change rate, and domain complexity are low.
 
+## Severity Levels
+
+Use these labels to rank findings in reviews:
+
+- **P0 — Blocker:** safety, legal, financial, or severe operational risk. The
+  system should not launch or scale without fixing this. Examples: PII leakage,
+  fake readiness probe, disabled auth, `eval()` on user input, irreversible
+  actions without audit.
+- **P1 — Important:** materially weakens the design or significantly increases
+  risk. Should be fixed before production scale or before the next major rollout.
+  Examples: missing monitoring, no fallback, no input limits, uncalibrated
+  LLM-as-judge, manual model promotion without guardrails.
+- **P2 — Improvement:** nice-to-have, polish, or lower-risk follow-up. Does not
+  block launch but should be tracked. Examples: stale docs, extra test coverage,
+  additional dashboards, code cleanup.
+
 ## Weighted Dimensions
 
 | Dimension | Max | Full Credit | Major Deductions |
