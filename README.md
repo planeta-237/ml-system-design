@@ -39,13 +39,6 @@ Use $ml-system-design to review the ML system architecture for ...
   - LLM/RAG/agents, agent patterns, common anti-patterns
   - Scoring rubric and output templates
 
-## Related Course Repository
-
-This skill is aligned with the ML System Design course notes at
-`~/Projects/learning/courses/ml-system-design`. The course repo provides deeper
-lecture transcripts, design docs, and case studies; the skill provides a
-concise, agent-ready framework.
-
 ## Release Archive
 
 The source folder is the primary artifact. A `.skill` archive can be created for distribution:
