@@ -16,6 +16,32 @@ latency, scalability, resilience, fallbacks, or rollout strategy.
 - **LLM inference**: consider cost, latency, and throughput trade-offs; KV
   cache management, continuous batching, and model routing are often critical.
 
+## Backend System Design Patterns
+
+- **Load balancing:** distribute traffic across instances (round robin, least
+  connections, IP hash, weighted, consistent hashing). Always pair with health
+  checks.
+- **Horizontal scaling:** add stateless instances behind a load balancer. Keep
+  data in external storage so instances can be replaced.
+- **Caching:** use Redis/Memcached/CDN for hot reads; define TTL, cache
+  invalidation, and fallback-on-miss behavior. Avoid caching decisions that
+  depend on fresh safety checks.
+- **CDN:** serve static content closer to users; reduces origin load and
+  latency.
+- **Message queues:** decouple producers and consumers, absorb traffic spikes,
+  and enable async processing (uploads, thumbnails, notifications). Kafka,
+  RabbitMQ, SQS, etc.
+- **API gateway:** single entry point for routing, auth/z, rate limiting, and
+  response aggregation. Internal services live in a private network.
+- **Microservices:** split by domain when teams and ownership boundaries grow;
+  not a default for small systems.
+- **Database scaling:** read replicas for read-heavy loads, sharding for data
+  size, partitioning for time-series or tenant isolation.
+- **Rate limiting:** protect services and upstream APIs with fixed window,
+  sliding window, token bucket, or leaky bucket algorithms.
+- **AuthN/AuthZ:** authentication proves identity; authorization proves rights.
+  Tokens (JWT) carry claims; RBAC/ABAC/ACL define policies.
+
 ## LLM Inference Optimization
 
 - [ ] Cost/latency/throughput trade-offs quantified for the expected load.

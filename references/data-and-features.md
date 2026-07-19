@@ -25,6 +25,22 @@ data quality, leakage, privacy, governance, or feedback loops.
   similarity, hybrid search for keyword/code lookups, exact match for IDs and
   history.
 
+## Data Pipelines and Orchestration
+
+- [ ] Orchestration is expressed as a DAG (directed acyclic graph) with explicit
+  dependencies, retries, SLAs, and backfill support.
+- [ ] Tasks are idempotent so reruns after failure do not corrupt data.
+- [ ] Sensors or contract checks wait for upstream data readiness before
+  starting downstream work.
+- [ ] Data passing between tasks is bounded and typed (XCom-like mechanisms
+  should not carry large payloads).
+- [ ] Schema and quality contracts are enforced at pipeline boundaries, not
+  only at the end.
+- [ ] Backfills and reruns are tested; replay does not duplicate labels or
+  produce inconsistent feature windows.
+- [ ] Orchestrator fits the cadence: Airflow for batch workflows, Flink/Spark
+  Streaming for streaming, not the other way around.
+
 ## Common Findings
 
 - The model target optimizes a proxy that can diverge from product value.

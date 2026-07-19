@@ -6,6 +6,17 @@ Use this file when designing or reviewing the metric hierarchy, offline/online m
 
 A single ML metric is rarely enough. Build a pyramid of metrics that connects model behavior to business value.
 
+```
+Business metrics         Revenue, LTV, CAC, churn
+Product metrics          DAU, conversion, engagement
+Operational metrics      Latency, throughput, error rate
+ML model metrics         Precision, recall, AUC, log loss, calibration
+```
+
+Each level should explain the level above. If an ML metric rises but the product
+metric falls, the proxy is wrong or the model is not driving the intended
+behavior.
+
 - [ ] Metric hierarchy / tree / pyramid defined.
 - [ ] **North Star** metric identified — one metric that captures product value.
 - [ ] North Star is a **leading** metric when possible, not only a lagging one.
@@ -13,6 +24,24 @@ A single ML metric is rarely enough. Build a pyramid of metrics that connects mo
 - [ ] Formula decomposed: know what inputs drive each top-level metric.
 - [ ] Multiple comparisons effect considered when using many metrics.
 - [ ] Absolute vs relative lift distinguished and the decision rule made explicit.
+
+## Counter-metrics and guardrails
+
+Every primary metric needs a counter-metric that protects against gaming it.
+
+| Primary metric | Counter-metric / guardrail |
+|---|---|
+| Click-through rate | Bounce rate, time-to-bounce |
+| Conversion | Time to convert, support tickets, refund rate |
+| Precision | Coverage, recall |
+| Recall | Precision, false-positive rate |
+| Engagement | Unsubscribe, churn, report rate |
+| Latency | Error rate, fallback rate, cost per request |
+
+- [ ] Vanity metrics avoided (e.g., total users without active users).
+- [ ] Metric duplication avoided (e.g., MAU and DAU without ratio or trend).
+- [ ] Conflicting KPIs across teams are surfaced and resolved explicitly.
+- [ ] **Guardrail** metrics defined to protect the system from unintended harm.
 
 ## Offline vs online metrics
 
