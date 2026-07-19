@@ -30,9 +30,21 @@ Use $ml-system-design to review the ML system architecture for ...
 
 ## Contents
 
-- `ml-system-design/SKILL.md`: main skill instructions and routing.
+- `ml-system-design/SKILL.md`: main skill instructions, modes, principles, and routing.
 - `ml-system-design/agents/openai.yaml`: UI metadata.
 - `ml-system-design/references/`: detailed reference files loaded on demand.
+  - Design and review workflows
+  - Problem space, metrics, A/B testing, general principles
+  - Data, modeling, serving, MLOps, monitoring
+  - LLM/RAG/agents, agent patterns, common anti-patterns
+  - Scoring rubric and output templates
+
+## Related Course Repository
+
+This skill is aligned with the ML System Design course notes at
+`~/Projects/learning/courses/ml-system-design`. The course repo provides deeper
+lecture transcripts, design docs, and case studies; the skill provides a
+concise, agent-ready framework.
 
 ## Release Archive
 
