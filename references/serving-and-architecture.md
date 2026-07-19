@@ -17,10 +17,14 @@ latency, scalability, resilience, fallbacks, or rollout strategy.
 ## Checklist
 
 - Request path, data path, and training path are drawn separately.
+- API contracts are stable, versioned, and separate internal from external
+  interfaces.
 - Online dependencies, timeouts, retries, rate limits, and fallbacks are named.
+- Latency budget (P50, P95, P99) and throughput targets defined.
 - Feature availability is consistent between training and serving.
 - Caching strategy is explicit and does not hide stale or unsafe predictions.
 - Rollout supports shadow, canary, A/B, gradual ramp, and rollback where useful.
-- Capacity, cost, latency SLOs, and degradation behavior are defined.
+- Feature toggles exist to disable the model or switch to a fallback quickly.
+- Capacity, cost, latency SLOs, and graceful degradation behavior are defined.
 - The design avoids making the model service a hidden monolith that owns product
   policy, data contracts, and business workflow.
