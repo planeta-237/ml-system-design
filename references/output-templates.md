@@ -3,20 +3,21 @@
 Use this file when formatting the final response for a design, review, scorecard,
 or teaching answer.
 
-## Design Output
+## Design Output Template
 
 ```markdown
-## Architecture Shape
-- Goal, users, decision, and why ML is appropriate.
+## Problem Space and Goal
+- Product problem, users, decision, and why ML is appropriate.
+- Anti-goals and constraints.
 
-## Requirements
+## Requirements and Success Metrics
 - Product metrics, model metrics, guardrails, latency, freshness, cost, privacy.
 
 ## Data Flow
 - Sources -> validation -> features/labels -> training/evaluation -> serving.
 
 ## Modeling And Evaluation
-- Baseline, model family, metrics, offline validation, online experiment plan.
+- Baseline, model family, metric hierarchy, offline validation, online experiment plan.
 
 ## Serving And Operations
 - Request path, dependencies, fallbacks, rollout, monitoring, retraining.
@@ -25,14 +26,14 @@ or teaching answer.
 - Launch blockers, deferred work, and phased roadmap.
 ```
 
-## Review Output
+## Review Output Template
 
 ```markdown
 ## Findings
 - [P0/P1/P2] Finding title - concrete evidence and impact.
 
-## Score
-- Optional score with dimension breakdown, only when requested.
+## Score (optional)
+- Score with dimension breakdown, only when requested.
 
 ## Strengths
 - Evidence-backed positives worth preserving.
@@ -44,7 +45,35 @@ or teaching answer.
 - Questions whose answers would materially change the review.
 ```
 
-## Teaching Output
+## Scoring Rubric Template
+
+Use this template when a numeric score is requested.
+
+```markdown
+| Dimension | Max | Score | Notes |
+|-----------|-----|-------|-------|
+| Product and Requirements Fit | 1.5 | | |
+| Data and Feature Design | 2.0 | | |
+| Modeling and Evaluation | 2.0 | | |
+| System Architecture | 1.5 | | |
+| MLOps and Monitoring | 1.5 | | |
+| Risk and Responsible AI | 1.0 | | |
+| Communication and Trade-offs | 0.5 | | |
+| **Total** | **10.0** | | |
+```
+
+## Teaching Output Template
 
 Answer directly first. Add a small example or decision table only if it clarifies
 the concept. Do not expand into a full design unless the user asks.
+
+```markdown
+## Direct Answer
+- Brief, concrete answer to the question.
+
+## Example (optional)
+- One small example or comparison table.
+
+## When to Apply / When to Avoid
+- Context for using the concept.
+```
