@@ -5,23 +5,23 @@ data quality, leakage, privacy, governance, or feedback loops.
 
 ## Checklist
 
-- Data sources, ownership, SLAs, retention, and access controls are named.
-- Labels are defined, collectable, timely, and aligned with the product goal.
-- ETL vs ELT approach chosen with compute-vs-storage trade-off in mind.
-- Training, validation, and serving distributions are compared.
-- Leakage risks are checked: future information, proxy labels, duplicated users,
+- [ ] Data sources, ownership, SLAs, retention, and access controls are named.
+- [ ] Labels are defined, collectable, timely, and aligned with the product goal.
+- [ ] ETL vs ELT approach chosen with compute-vs-storage trade-off in mind.
+- [ ] Training, validation, and serving distributions are compared.
+- [ ] Leakage risks are checked: future information, proxy labels, duplicated users,
   offline-only features, and target-derived fields.
-- Freshness requirements are mapped to batch, streaming, or online features.
-- Quality checks cover missingness, outliers, schema drift, duplicates, delayed
+- [ ] Freshness requirements are mapped to batch, streaming, or online features.
+- [ ] Quality checks cover missingness, outliers, schema drift, duplicates, delayed
   events, and inconsistent identifiers.
-- A data validation pipeline enforces constraints and raises alerts on
+- [ ] A data validation pipeline enforces constraints and raises alerts on
   violations.
-- Training-serving consistency is checked: same units, formats, encodings, and
+- [ ] Training-serving consistency is checked: same units, formats, encodings, and
   computation paths.
-- Representativeness and bias risks are assessed across important segments.
-- Consent, PII, deletion, audit, and compliance requirements are addressed.
-- Data and labels are versioned with metadata (who, when, tool version).
-- Retrieval strategy matches data characteristics: vector search for semantic
+- [ ] Representativeness and bias risks are assessed across important segments.
+- [ ] Consent, PII, deletion, audit, and compliance requirements are addressed.
+- [ ] Data and labels are versioned with metadata (who, when, tool version).
+- [ ] Retrieval strategy matches data characteristics: vector search for semantic
   similarity, hybrid search for keyword/code lookups, exact match for IDs and
   history.
 

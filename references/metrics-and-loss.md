@@ -59,7 +59,6 @@ Every primary metric needs a counter-metric that protects against gaming it.
 - [ ] Input vs indicator, leading vs lagging distinguished.
 - [ ] Time scope per metric clear: per time / session / cohort / user.
 - [ ] What-if analysis done: minimum input change for maximum target impact.
-- [ ] **Guardrail** metrics defined to protect the system from unintended harm.
 
 ## Loss functions
 
