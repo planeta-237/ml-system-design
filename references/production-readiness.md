@@ -5,10 +5,15 @@ for production traffic.
 
 ## Health, observability, and CI/CD
 
-- [ ] **Real readiness probe** checks critical dependencies: database, queue,
-  model provider, feature stores, upstream APIs. It returns non-200 when a
-  dependency is unavailable.
-- [ ] **Liveness probe** distinguishes "stuck" from "healthy but slow".
+- [ ] **Readiness probe** verifies that this instance can accept traffic: required
+  configuration is valid, local models or indexes are initialized, and critical
+  local resources are usable. Include a shared external dependency only when the
+  instance truly cannot serve a fallback and removing it from traffic improves
+  recovery; avoid making every replica unready during one upstream outage.
+- [ ] **Liveness probe** detects a deadlocked or irrecoverably stuck process and
+  does not fail because a shared database, queue, or model provider is down.
+- [ ] **Dependency health** is monitored separately and drives circuit breakers,
+  fallbacks, degraded-mode status, and alerts instead of process restarts.
 - [ ] **CI/CD** runs tests, lint, type checks, and security scans on every merge.
 - [ ] **Model/prompt promotion** is gated by automated evaluation, not only manual
   approval.
@@ -33,8 +38,10 @@ for production traffic.
 - [ ] **Timeouts, retries, and circuit breakers** are configured for external
   dependencies.
 - [ ] **Fallback or graceful degradation** exists when the model/provider is unavailable.
-- [ ] **Model loading is not a single blocking step at startup**; lazy loading or
-  warm pools are used.
+- [ ] **Model initialization matches the serving strategy**: locally hosted
+  models are loaded and warmed before readiness; asynchronous initialization is
+  allowed while the instance remains unready. Use lazy loading only when its
+  first-request latency, memory concurrency, and failure behavior are acceptable.
 - [ ] **Feature toggles** allow disabling the model or switching to a fallback.
 
 ## Release and rollback
@@ -48,11 +55,14 @@ for production traffic.
 
 ## Common findings
 
-- Health endpoint returns `OK` without actually checking the database or queue.
+- Readiness returns `OK` before required local models, indexes, or configuration
+  are usable.
+- Liveness depends on a shared upstream and restarts the fleet during an external
+  outage.
 - CI/CD quality gates are commented out or missing.
 - Full request payloads, including PII, are logged.
 - `MOCK_AUTH` or similar test flags are enabled by default.
 - `eval()` or pickle loading is used on user-influenced data.
-- Models are loaded synchronously at startup, blocking readiness.
+- Instances become ready before model initialization or warm-up finishes.
 - No rate limiting or input size limits on public endpoints.
 - Business rules are hardcoded as magic numbers.

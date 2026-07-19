@@ -5,14 +5,25 @@ requires calibrated scoring. The score is a decision-making tool: how safe,
 understandable, evolvable, and operationally sound the ML system design is for
 its stated goal.
 
+## Contents
+
+- Scoring method and severity levels
+- Weighted dimensions and grade anchors
+- Calibration examples
+- Dimension guidance
+- Lifecycle and scope calibration
+
 ## Scoring Method
 
 1. Confirm the system type and evidence mode.
 2. List evidence-backed findings by severity.
 3. Assign each dimension independently.
 4. Avoid double-counting one root cause across multiple dimensions.
-5. Adjust for missing context: **Unknown is not the same as failed.**
-6. Compare the final score with the anchors before publishing it.
+5. Mark unsupported dimensions or criteria as **Unknown**; do not convert missing
+   evidence to either zero or full credit.
+6. Report evidence coverage. If the user requires a total despite material
+   unknowns, label it provisional and state the assumptions or plausible range.
+7. Compare the final score with the anchors before publishing it.
 
 If the artifact is a small prototype, notebook, or internal script, state
 whether the score is **ML system design fitness** rather than overall
@@ -65,20 +76,18 @@ Use these labels to rank findings in reviews:
   explicit trade-offs.
 - **8.5**: Sound architecture and evaluation; a few pragmatic shortcuts exist
   (e.g., manual retraining, partial canary, missing segment metrics).
-- **7.5**: Recognizable ML system design, but use cases are getting fat,
-  boundary DTOs are inconsistent, or monitoring is mostly dashboards without
-  actionable alerts.
-- **6.5**: Mixed design; some business rules are isolated, but framework types
-  or persistence details leak into application code, and evaluation is weak.
-- **5.0**: Maintainable only with care; major services mix orchestration,
-  persistence, and external calls; no clear monitoring or experiment plan.
-- **4.0-5.0**: common range for small prototypes or low-risk internal tools that
-  are understandable but not shaped like a production ML system. Explain the style
-  mismatch instead of treating every missing layer as urgent redesign.
+- **7.5**: Coherent data, modeling, and serving plan, but one important area such
+  as online evaluation, fallback behavior, or actionable monitoring is thin.
+- **6.5**: Viable design with material gaps in labels, validation, rollout, or
+  operations; production use needs targeted rework.
+- **5.0**: The ML task is understandable, but evidence is weak and multiple
+  production-critical areas such as data quality, evaluation, serving, and
+  monitoring are undefined.
 - **3.0**: typical teaching example of bad design: no baseline, data leakage,
-  HTTP response logic in business code, no monitoring, hard to reproduce.
-- **1.0**: barely separable or unsafe: no meaningful boundaries plus severe
-  data, security, or operational risks.
+  an invalid validation scheme, no rollback or monitoring, and poor
+  reproducibility.
+- **1.0**: The task or labels are incoherent and severe data, safety, security, or
+  operational risks remain unaddressed.
 
 ## Dimension Guidance
 
@@ -147,18 +156,22 @@ Use these labels to rank findings in reviews:
 - **0.1**: Some structure but mostly assertions.
 - **0.0**: Unreviewable or purely promotional document.
 
-## Style-Mismatch Severity
+## Lifecycle and Scope Calibration
 
-Use lower severity when a finding is mainly "not a full ML system design":
+Judge requirements against the artifact's lifecycle stage and declared scope:
 
-- Missing monitoring in a tiny prototype is often **P2** unless it handles
-  sensitive data or high-value decisions.
-- A single Jupyter notebook without serving is **P1/P2** for exploration, but
-  **P0** if it is intended to power a product without a serving plan.
-- Active Record or simple persistence is acceptable for low-risk CRUD but
-  becomes **P1** when it mixes business rules or external side effects.
+- Missing production monitoring in an offline feasibility prototype is often
+  **P2** or not applicable; missing evaluation data can still be **P1**.
+- A notebook without serving is acceptable for exploration. It becomes **P0/P1**
+  only when it is used for consequential production decisions without a safe
+  execution, review, or rollback path.
+- Do not penalize a batch system for lacking online serving, or a human-reviewed
+  decision-support tool for lacking full automation.
+- For an early design doc, score whether stage-critical decisions and validation
+  plans are explicit; mark implementation evidence as Unknown.
 - Escalate to **P1/P0** when the mismatch creates concrete risk: PII leakage,
   financial/safety impact, high change frequency, or irreversible side effects.
 
-Score evidence, not confidence. Missing stage-critical evidence should cap the
-score even when the proposal sounds plausible.
+Score evidence, not confidence. Do not claim a production-ready grade when
+stage-critical evidence is missing; report a provisional result, evidence gaps,
+and what would resolve them.

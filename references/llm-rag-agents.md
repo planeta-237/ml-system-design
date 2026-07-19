@@ -16,7 +16,10 @@ memory, agents, autonomous actions, or generated content.
 - [ ] **Human in the loop** is defined for critical decisions, denials, overrides,
   and feedback.
 - [ ] Planning approach chosen: explicit plan vs end-to-end model reasoning.
-- [ ] Multi-agent systems use a coordinator + collaborators + supervisor pattern.
+- [ ] Multi-agent design is used only when task decomposition, isolation, or
+  parallelism earns its coordination cost. Choose an explicit pattern—router,
+  manager/workers, parallel specialists, or evaluator/optimizer—and define state
+  ownership, merge rules, stopping conditions, and failure handling.
 - [ ] Guardrails are layered: input validation → LLM call → output validation →
   tool result validation.
 - [ ] Tool permissions, idempotency, approval gates, audit logs, sandboxing, rate
@@ -28,10 +31,15 @@ memory, agents, autonomous actions, or generated content.
   context rot.
 - [ ] Evaluation includes task success, groundedness, **faithfulness**, refusal/safety
   behavior, regression sets, jailbreak/adversarial tests, latency, and cost.
-- [ ] LLM-as-judge is calibrated against human experts (e.g., Cohen's kappa ≥ 0.6).
+- [ ] LLM-as-judge is validated against representative human-labeled examples.
+  Select an agreement or decision metric that fits the label type and risk,
+  report uncertainty and material disagreement patterns, and set an acceptance
+  threshold from the intended use rather than a universal constant.
 - [ ] Fine-tuning has a data quality and evaluation argument that beats prompting,
   retrieval, or smaller targeted models.
-- [ ] PII and sensitive data are removed or tokenized before reaching the LLM.
+- [ ] Data sent to an LLM is minimized and handled according to its sensitivity,
+  consent, retention, residency, and provider controls. Redact or tokenize fields
+  when the task does not require their original values.
 
 For runtime patterns, testing, and anti-patterns see `llm-agents-patterns.md`.
 

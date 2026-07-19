@@ -2,6 +2,13 @@
 
 Use this file when designing or reviewing the metric hierarchy, offline/online metrics, and loss functions for an ML system.
 
+## Contents
+
+- Metric hierarchy, counter-metrics, and guardrails
+- Offline/online alignment and metric types
+- Loss selection and diagnostics
+- Decision tables
+
 ## Metric hierarchy
 
 A single ML metric is rarely enough. Build a pyramid of metrics that connects model behavior to business value.
@@ -63,8 +70,12 @@ Every primary metric needs a counter-metric that protects against gaming it.
 
 ## Loss functions
 
-- [ ] Loss is differentiable and globally continuous if using gradient methods.
+- [ ] Loss is compatible with the optimizer: gradients, subgradients, or suitable
+  surrogates are available where needed, and non-differentiable points are
+  handled deliberately.
 - [ ] Loss choice justified by business logic, not just default (MSE / cross-entropy).
+- [ ] Numerical stability is checked for extreme logits, probabilities, weights,
+  and empty or degenerate batches.
 - [ ] Impact of loss on error distribution considered (outliers vs robust).
 - [ ] Class imbalance handled (focal loss, weighting, sampling).
 - [ ] Combined losses used when needed.
@@ -98,4 +109,3 @@ Every primary metric needs a counter-metric that protects against gaming it.
 | Loss oscillates or NaN | Bad data, too-high LR, numeric issue | Check data, gradient clipping, lower LR, scale features |
 | Offline metric ↑, A/B metric flat | Offline-online mismatch | Revalidate proxy correlation, check serving features |
 | Metric suddenly spikes without code change | External event, data drift, broken pipeline | Investigate upstream data and environment |
-

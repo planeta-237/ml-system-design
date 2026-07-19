@@ -50,16 +50,16 @@ or teaching answer.
 Use this template when a numeric score is requested.
 
 ```markdown
-| Dimension | Max | Score | Notes |
-|-----------|-----|-------|-------|
-| Product and Requirements Fit | 1.5 | | |
-| Data and Feature Design | 2.0 | | |
-| Modeling and Evaluation | 2.0 | | |
-| System Architecture | 1.5 | | |
-| MLOps and Monitoring | 1.5 | | |
-| Risk and Responsible AI | 1.0 | | |
-| Communication and Trade-offs | 0.5 | | |
-| **Total** | **10.0** | | |
+| Dimension | Max | Score | Evidence | Notes |
+|-----------|-----|-------|----------|-------|
+| Product and Requirements Fit | 1.5 | | Verified / Partial / Unknown | |
+| Data and Feature Design | 2.0 | | Verified / Partial / Unknown | |
+| Modeling and Evaluation | 2.0 | | Verified / Partial / Unknown | |
+| System Architecture | 1.5 | | Verified / Partial / Unknown | |
+| MLOps and Monitoring | 1.5 | | Verified / Partial / Unknown | |
+| Risk and Responsible AI | 1.0 | | Verified / Partial / Unknown | |
+| Communication and Trade-offs | 0.5 | | Verified / Partial / Unknown | |
+| **Total** | **10.0** | | Coverage: | Provisional when material evidence is Unknown |
 ```
 
 ## Teaching Output Template

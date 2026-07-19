@@ -6,14 +6,15 @@ or any product that selects and orders items for users.
 ## Core Pipeline
 
 ```
-Candidate Generation → Retrieval → Ranking → Post-Processing → Blending
+Candidate Generation / Retrieval → Feature Hydration → Ranking → Post-Processing / Blending
 ```
 
-- **Candidate generation:** rules, filters, or lightweight models that produce an
-  initial item set (e.g., followed authors, topic matches, trending).
-- **Retrieval:** fast approximate scoring to reduce the candidate set from
-  millions/hundreds to hundreds/thousands. Often a two-tower model with
-  embeddings and ANN (HNSW, IVF, etc.).
+- **Candidate generation / retrieval:** combine one or more sources—rules, graph
+  edges, popularity, lexical retrieval, or embedding models—to reduce a large
+  corpus to a recall-oriented candidate set. At scale this may use a two-tower
+  model with ANN (HNSW, IVF, etc.).
+- **Feature hydration:** fetch bounded, serving-time user, item, and context
+  features needed by ranking without large request-path joins.
 - **Ranking:** heavier model(s) that predict per-item engagement or utility and
   produce a final ordered list.
 - **Post-processing:** diversity, freshness, deduplication, business rules,

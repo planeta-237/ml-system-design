@@ -8,6 +8,14 @@ This reference is **not** a substitute for product management, but it gives
 ML system designers the language and checkpoints to keep technical work aligned
 with business validation.
 
+## Contents
+
+- Stage-Gate and Fast Track
+- Hypothesis-Driven Development
+- Problem, demand, and usability validation
+- Customer experience mapping
+- ML system design applications and anti-patterns
+
 ## Stage-Gate process
 
 A structured way to move from idea to scale with explicit kill/pivot decisions.
