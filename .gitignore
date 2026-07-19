@@ -1,0 +1,8 @@
+.DS_Store
+
+# Local research and evaluation artifacts
+research/
+plan.md
+
+# Packaged release artifacts; attach these to GitHub Releases if needed.
+*.skill

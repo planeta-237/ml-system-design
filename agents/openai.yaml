@@ -1,0 +1,7 @@
+interface:
+  display_name: "ML System Design"
+  short_description: "Review and design ML systems"
+  default_prompt: "Use $ml-system-design to review or design an ML system with evidence-based findings, trade-offs, risks, evaluation, deployment, data, and monitoring guidance."
+
+policy:
+  allow_implicit_invocation: true
