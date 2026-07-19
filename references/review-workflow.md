@@ -13,16 +13,23 @@ document, architecture diagram, metrics dashboard, or incident write-up.
 
 ## Review Passes
 
-1. Product fit: problem, users, decision, value, success metrics.
+1. Product fit: problem, users, decision, value, anti-goals, constraints,
+   price of error, and success metrics.
 2. Data fit: availability, quality, representativeness, labels, leakage, skew,
-   governance, privacy, and retention.
-3. Model fit: baseline, model choice, metrics, evaluation design, failure modes.
-4. System fit: batch/stream/online architecture, storage, serving, latency,
-   scalability, fallbacks, rollback, and cost.
+   training-serving consistency, governance, privacy, and retention.
+3. Model fit: baseline, model choice, metrics, metric hierarchy, calibration,
+   error analysis, evaluation design, and failure modes.
+4. System fit: batch/stream/online architecture, storage, serving, latency
+   budget, API contracts, scalability, fallbacks, graceful degradation,
+   rollback, feature toggles, and cost.
 5. Operations fit: CI/CD, model registry, monitoring, retraining, incident
    response, ownership, and documentation.
-6. Responsible AI fit: safety, fairness, explainability, abuse, compliance, and
+6. Experimentation fit: A/B or causal design, MDE, power, peeking, segment
+   analysis, and guardrails.
+7. Responsible AI fit: safety, fairness, explainability, abuse, compliance, and
    human review where needed.
+8. For agentic systems: planning, tool use, guardrails, context management,
+   non-determinism, testing with stories, and multi-agent coordination.
 
 ## Finding Style
 

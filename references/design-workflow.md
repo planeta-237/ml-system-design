@@ -6,7 +6,8 @@ design interview prompt.
 ## Steps
 
 1. Clarify the product objective, users, actions, and decision to automate or
-   support.
+   support. Frame the problem space: root cause, stakeholders, anti-goals,
+   constraints, and price of error.
 2. Define success metrics: product metrics, model metrics, guardrail metrics,
    cost, latency, freshness, reliability, and safety.
 3. Identify data sources, labels, feedback loops, cold-start paths, privacy
@@ -23,6 +24,7 @@ design interview prompt.
 
 ## Default Design Sections
 
+- Problem space and anti-goals.
 - Goal and assumptions.
 - Requirements and constraints.
 - Data and labels.
